@@ -1,0 +1,451 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+   <script type="text/javascript">
+       $(document).ready(function() {
+           $('#upload').on('click', function(evt) {
+               var formdata = new FormData();
+               formdata.append('thefile', $("#uploadfile")[0].files[0]);
+               $.ajax({
+                   type: 'post',
+                   url: '/submit',
+                   data: formdata,
+                   processData: false,
+                   contentType: false,
+                   success: function(response) {
+                       alert(response);
+                   },
+                   error: function(err) {
+                       alert(err);
+                   }
+               });
+           });
+   });
+   </script>
+ <style type="text/css">
+   /*Common style*/
+   html {
+     -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+   }
+
+   body {
+     height: 100%;
+
+     padding: 100px
+
+   }
+   body {
+     font-family: 'Open Sans', sans-serif;
+     font-weight: 400;
+     background-color: #ffffff;
+     -webkit-font-smoothing: antialiased;
+     padding-bottom :50px
+
+   }
+   button {
+     padding: 0;
+     border: none;
+     background-color: transparent;
+     -webkit-transition: 0.4s;
+     -moz-transition: 0.4s;
+     transition: 0.4s;
+     cursor: pointer;
+   }
+   button:focus {
+     outline: none;
+   }
+   a {
+     -webkit-transition: 0.4s;
+     -moz-transition: 0.4s;
+     transition: 0.4s;
+   }
+   a:hover,
+   a:active,
+   a:focus {
+     outline: none;
+     text-decoration: none;
+   }
+   input,
+   textarea,
+   select {
+     padding: 0;
+     margin: 0;
+     -webkit-border-radius: 0;
+     border-radius: 0;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     -ms-appearance: none;
+     appearance: none;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     -webkit-transition: 0.4s;
+     -moz-transition: 0.4s;
+     transition: 0.4s;
+   }
+   input:focus,
+   textarea:focus,
+   select:focus {
+     outline: none;
+   }
+   select::-ms-expand {
+     display: none;
+   }
+   ul {
+     margin: 0;
+     padding: 0;
+     list-style: none;
+   }
+
+
+
+
+
+   /*form*/
+   .form {
+     position: relative;
+     padding: 20px;
+     border: 1px solid rgba(133,153,171,0.2);
+     -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fff;
+     margin-bottom: 20px;
+   }
+   .form__title {
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: horizontal;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: row;
+     -moz-box-direction: row;
+     -ms-flex-direction: row;
+     flex-direction: row;
+     -webkit-justify-content: space-between;
+     -ms-flex-pack: justify;
+     justify-content: space-between;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
+     height: 40px;
+     line-height: 100%;
+     font-size: 16px;
+     font-weight: 600;
+     color: #364e65;
+     margin-bottom: 20px;
+     border-bottom: 1px solid rgba(133,153,171,0.2);
+     padding-top: 2px;
+   }
+   .form__group {
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+     -moz-box-direction: column;
+     -ms-flex-direction: column;
+     flex-direction: column;
+     -webkit-justify-content: flex-start;
+     -ms-flex-pack: start;
+     justify-content: flex-start;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
+     margin-bottom: 20px;
+     width: 100%;
+   }
+   .form__label {
+     font-size: 13px;
+     color: #8599ab;
+     font-weight: normal;
+     margin-bottom: 10px;
+   }
+
+   .form__select {
+     width: 100%;
+     height: 40px;
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fafafa;
+     border: 1px solid rgba(133,153,171,0.2);
+     font-size: 14px;
+     color: #364e65;
+     padding: 0 15px;
+     cursor: pointer;
+   }
+
+   .form__select:focus {
+     border-color: #3796f6;
+   }
+   .form__input {
+     width: 100%;
+     height: 40px;
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fafafa;
+     border: 1px solid rgba(133,153,171,0.2);
+     font-size: 14px;
+     color: #364e65;
+     padding: 0 15px;
+   }
+   .form__input:focus {
+     border-color: #3796f6;
+   }
+   .form__textarea {
+     width: 100%;
+     height: 200px;
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fafafa;
+     border: 1px solid rgba(133,153,171,0.2);
+     font-size: 14px;
+     color: #364e65;
+     padding: 10px 15px;
+     resize: none;
+   }
+   .form__btn {
+     width: 160px;
+     height: 40px;
+     background: #4A708B
+     color: #ff3fff;
+     font-size: 13px;
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     letter-spacing: 0.4px;
+     text-transform: uppercase;
+     font-weight: 600;
+     position: relative;
+     overflow: hidden;
+     margin-top: 10px;
+   }
+
+
+
+   .header {
+     display: block;
+     position: fixed;
+     background-color: #2d2f32;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 100;
+     -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+   }
+   .header__content {
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: horizontal;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: row;
+     -moz-box-direction: row;
+     -ms-flex-direction: row;
+     flex-direction: row;
+     -webkit-justify-content: space-between;
+     -ms-flex-pack: justify;
+     justify-content: space-between;
+     -webkit-align-items: center;
+     -ms-flex-align: center;
+     align-items: center;
+     height: 70px;
+     position: relative;
+   }
+   .header__nav-link {
+     font-size: 14px;
+     color: #ffffff;
+     padding: 110px
+   }
+
+
+   /*footer*/
+   .footer {
+     height:40px
+     background-color: #fff;
+     position:absolute
+     bottom:0
+     border-top: 1px solid rgba(133,153,171,0.2);
+     -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+   }
+   .footer__content {
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+     -moz-box-direction: column;
+     -ms-flex-direction: column;
+     flex-direction: column;
+     -webkit-justify-content: flex-start;
+     -ms-flex-pack: start;
+     justify-content: flex-start;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
+     padding: 40px 0;
+     position: relative;
+   }
+   .footer__copyright {
+     display: inline-block;
+     -ms-flex-order: 3;
+     -webkit-order: 3;
+     order: 3;
+     margin-top: 20px;
+     font-size: 12px;
+     line-height: 16px;
+     color: #8599ab;
+   }
+
+
+
+   .post {
+     position: relative;
+     padding: 20px;
+     border: 1px solid rgba(133,153,171,0.2);
+     -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+     -webkit-border-radius: 4px;
+     border-radius: 4px;
+     background-color: #fff;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+     -moz-box-direction: column;
+     -ms-flex-direction: column;
+     flex-direction: column;
+     -webkit-justify-content: flex-start;
+     -ms-flex-pack: start;
+     justify-content: flex-start;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
+     margin-bottom: 20px;
+   }
+</style>
+  </head>
+  <body>
+
+    <header class="header">
+  		<div class="container">
+
+  					<div class="header__content">
+
+
+	             <a href="/display" class="header__nav-link">Home</a>
+               <a href="/newpost.html"class="header__nav-link"> New Post</a>
+               <a href="/index.html" class="header__nav-link"> Log in</a>
+               <a href="/index.html" class="header__nav-link"> Sign up</a>
+               <div class="header__nav-link">Notifications</div>
+
+
+
+  					</div>
+  				</div>
+
+
+
+
+  	</header>
+  	<!-- end header -->
+
+
+
+
+    <h1>New Post</h1>
+    <form action="/submit" method="post" onsubmit="return checkForm(this)" enctype='multipart/multipart/form-data'>
+      <div class='form__group'>
+
+
+      <div class="form__title"><span> <br>Title:</span></div>
+        <input type="text" name="title" class='form__input' placeholder="Type the title">
+
+
+
+
+
+        <div class="form__title"><span><br>Author:</span></div>  <input type="text" name="authorname" class='form__input' placeholder="Type your name">
+
+
+        </div>
+
+
+
+
+        <div class="form__title"><span></br>Type: <span></div>
+
+
+
+        <select name="posttype" class='form__select'>
+                  <option value="fanfic" >Fan fiction 同人文创作</option>
+                  <option value="artwork">Artworks 同人图创作</option>
+                  <option value="discussion">Discussion 讨论</option>
+                  <option value="other">Other types 其他类别 </option>
+                </select>
+
+
+
+
+
+      <div class="form__title"> <span><br> Content:<span></div>
+        <textarea name='content' id="content" class="form__textarea">
+        </textarea>
+
+        <br>
+        <input type="file" name='thefile' accept='.jpg' id="uploadfile">
+
+        <input type="submit" value="Post" class="form__btn">
+    </form>
+
+
+<!--**fanart**
+    <form action="upload.php" method="POST">
+
+    </form>
+->
+
+
+    <!- - footer -->
+    <footer class="footer">
+
+            <div class="footer__content">
+              <a href="index.html" class="footer__logo">
+                <img src="img/logo.svg" alt="">
+              </a>
+
+              <span class="footer__copyright">Shanks x Buggy BBS<br> Create by <a href="https://twitter.com/PrimalMXY" target="_blank">AU</a>
+              <br>If you have any questions please contact. QQ:2576344595</span>
+
+
+
+            </div>
+
+    </footer>
+    <!-- end footer -->
+  </body>
+</html>
+
+
+
+<script language="javascript">
+  function checkForm(form){
+    if(form.authorname.value==""){
+      alert("Author name cannot be empty")
+      form.authorname.focus()
+      return false
+    }
+    if(form.title.value==""){
+      alert("title cannot be empty")
+      form.title.focus()
+      return false
+    }
+    return true
+  }
+  </script>
