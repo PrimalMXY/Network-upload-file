@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <style type='text/css'>
+
+    body {
+      height: 100%;
+
+      padding: 100px
+
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom :50px
+
+      }
+
+
+
+
+
+    .post {
+      position: absolute;
+      padding: 110px;
+      border: 1px solid rgba(133,153,171,0.2);
+      -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      background-color: #fff;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-box-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      }
+    .post__title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #364e65;
+      margin-bottom: 15px;
+      line-height: 26px;
+      }
+    .header {
+      display: block;
+      position: fixed;
+      background-color: #2d2f32;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      }
+    .header__content {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      -moz-box-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 70px;
+      position: relative;
+      }
+    .header__nav-link {
+      font-size: 14px;
+      color: #ffffff;
+      padding: 110px
+
+      }
+
+
+      /*footer*/
+    .footer {
+      height:40px
+      background-color: #fff;
+      position:absolute
+      bottom:0
+      border-top: 1px solid rgba(133,153,171,0.2);
+      -webkit-box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      box-shadow: 0 2px 26px 0 rgba(133,153,171,0.1);
+      }
+    .footer__content {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-box-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      padding: 40px 0;
+      position: relative;
+    }
+    .footer__copyright {
+   display: inline-block;
+   -ms-flex-order: 3;
+   -webkit-order: 3;
+   order: 3;
+   margin-top: 20px;
+   font-size: 12px;
+   line-height: 16px;
+   color: #8599ab;
+ }
+
+
+  .posttime{
+    max-width: 100px
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+    table{
+      border-collapse: collapse;
+      margin: 0 auto;
+
+      position: absolute;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+      overflow:hidden;
+
+      }
+      table th
+        {
+        order: 1px solid #cad9ea;
+        color: #666;
+        height: 30px;
+        text-align: center;
+        font-size:20px
+
+        font-weight: 600;
+        color: #364e65;
+        margin-bottom: 15px;
+        line-height: 26px;
+      }
+      table thead th
+        {
+           background-color: #CCE8EB;
+           width: 100px;
+         }
+       table tr:nth-child(odd)
+        {
+           background: #fff;
+         }
+       table td{
+         order: 1px solid #cad9ea;
+         color: #666;
+         height: 30px;
+         text-align: center;
+         font-size:15px
+          }
+ </style>
+
+ 
+
+
+
+</head>
+  <body>
+    <header class="header">
+      <div class="container">
+
+            <div class="header__content">
+
+
+              <a href="/display" class="header__nav-link">Home</a>
+
+              <a href="/newpost.html"class="header__nav-link"> New Post</a>
+
+              <div class="header__nav-link">Notifications</div>
+
+                <a href='/logout' class="header__nav-link"> Logout </a>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+
+
+
+
+    </header>
+    <!-- end header -->
+
+    <h1>Welcome to GrandLine</h1>
+
+
+
+    <table width="90%" class='table'>
+      <tr>
+        <h2 class="post__title"><th><a href="/display?sort=Title">Title</a></th></h2>
+        <h2><th><a href="/display?sort=posttype">Post Type</a></th></h2>
+
+        <h2><th><a href="/display?sort=authorname">Author name</a></th></h2>
+        <h2><th><a href="/display?sort=timestamp">Time</a></th><h2>
+
+
+      </tr>
+
+
+
+
+
+      <form action="/search" method="GET">
+        <div class='form__group'>
+            <div class='form__title'><span>Search:</div>
+        <select name="searchtype" class='form__select'>
+                  <option value="title" >Title</option>
+                  <option value="authorname">Author </option>
+                  <option value="posttype">Post type</option>
+
+          </select>
+        <input type="text" name="search"><input type="submit" value="Find It">
+      </div>
+      </form>
+      <% for (var i = 0; i < data.length; i++) { %>
+
+
+
+
+
+        <tr>
+          <h4 class='post__title'><td><a href="/individual?id=<%=data[i]._id%>" text-decoration:none class="posttime"><%=data[i].title%></a></h4></td>
+          <td><a href="/type?id=<%=data[i]._posttype%>"text-decoration:none class="posttime"><%=data[i].posttype%></a></td>
+
+          <td><a href="/author?authorname=<%=data[i]._authorname%>"text-decoration:none class="posttime"><%=data[i].authorname%></a></td>
+          <td class='posttime'><%=data[i].timestamp%></td>
+
+
+
+
+        </tr>
+
+
+      <% } %>
+
+
+      <footer class="footer">
+
+              <div class="footer__content">
+                <a href="index.html" class="footer__logo">
+                  <img src="img/logo.svg" alt="">
+                </a>
+
+                <span class="footer__copyright">Shanks x Buggy BBS<br> Create by <a href="https://twitter.com/PrimalMXY" target="_blank">AU</a>
+                <br>If you have any questions please contact. QQ:2576344595</span>
+
+
+
+              </div>
+
+      </footer>
+
+</table>
+      <!-- footer -->
+
+  </body>
+</html>
